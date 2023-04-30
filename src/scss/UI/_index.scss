@@ -1,0 +1,99 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.contenedor-cartel{
+    @include m.grid(2, 2rem);
+    margin: 10rem auto;
+}
+.cartel{
+    background-color: v.$primario;
+    padding: 3rem;
+
+    &__titulo,
+    &__estado,
+    &__personaje-nombre,
+    &__recompensa{
+        color: v.$secundario;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 0;
+    }
+
+    &__titulo{
+        font-size: 11rem;
+    }
+
+    &__imagen{
+        width: 90%;
+        height: 40rem;
+        margin: 0 auto;
+        border: 2px solid v.$negro;
+    }
+
+    position: relative;
+    &__estado{
+        padding-top: 2rem;
+        font-size: 5rem;
+        font-weight: normal;
+
+        &::before{
+            content: '';
+            background-image: url(../img/izquierda.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            width: 3.5rem;
+            height: 25rem;
+            top: 60rem;
+            left: .6rem;
+            display: block;
+        }
+        &::after{
+            content: '';
+            background-image: url(../img/derecha.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            width: 3.5rem;
+            height: 25rem;
+            top: 60rem;
+            right: .6rem;
+            display: block;
+        }
+
+    }
+
+    &__personaje-nombre{
+        font-size: 5.5rem;
+        font-weight: normal;
+    }
+
+    &__recompensa{
+        font-family: v.$fuenteSecundaria;
+        font-size: 6rem;
+    }
+
+    .texto{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+
+        &__detalle,
+        &__marina{
+            color: v.$secundario;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        &__detalle{
+            font-weight: normal;
+            font-size: 1rem;
+            padding-left: 1rem;
+
+        }
+
+        &__marina{
+            font-size: 5rem;
+        }
+    }
+}
